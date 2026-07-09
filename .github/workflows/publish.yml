@@ -1,10 +1,9 @@
-name: publish
+name: Publish
 on:
   push:
-    tags:
-      - 'v*'
+    tags: ['v*']
 jobs:
-  npm:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -12,13 +11,7 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-      - name: publish
-        continue-on-error: true
+      - name: Publish
+        run: npm publish --access public || echo "npm publish skipped (NPM_TOKEN missing or version exists)"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -z "$NODE_AUTH_TOKEN" ]; then
-            echo "NPM_TOKEN not set — skipping publish (fail-graceful)"
-            exit 0
-          fi
-          npm publish --access public || echo "publish failed — continuing"

@@ -1,0 +1,38 @@
+{
+  "name": "@ai-native-solutions/fallledger-mcp",
+  "version": "1.0.0",
+  "description": "MCP (stdio) server for fallledger-sdk. Exposes the sovereign double-entry ledger as tools + resources for Claude Desktop / Claude Code.",
+  "type": "module",
+  "bin": {
+    "fallledger-mcp": "bin/fallledger-mcp.js"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node bin/fallledger-mcp.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@ai-native-solutions/fallledger-sdk": "^1.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "claude",
+    "accounting",
+    "ledger",
+    "double-entry"
+  ],
+  "author": "AI Native Solutions",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjgant80-hub/fallledger-mcp.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
